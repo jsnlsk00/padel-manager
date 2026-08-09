@@ -1,0 +1,17 @@
+# Backend
+backend/target/
+*.class
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/out-tsc/
+frontend/cypress/screenshots/
+frontend/cypress/videos/
+
+# Outils
+.idea/
+.vscode/
+*.iml
+.DS_Store

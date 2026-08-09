@@ -1,0 +1,43 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: padel-backend
+  datasource:
+    url: ${PADEL_DB_URL:jdbc:mysql://localhost:3307/padel?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Europe/Brussels}
+    username: ${PADEL_DB_USER:padel_app}
+    password: ${PADEL_DB_PASSWORD:app_pwd}
+  jpa:
+    # padel_app n'a aucun droit DDL : le schema est cree par le conteneur MySQL.
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+    show-sql: false
+  jackson:
+    default-property-inclusion: non_null
+
+padel:
+  jwt:
+    # Cle HS256 encodee en base64. A remplacer par une variable d'environnement en production.
+    secret: ${PADEL_JWT_SECRET:cGFkZWwtZXBoZWMtc2VjcmV0LWtleS0yMDI2LWhzMjU2LW1pbmltdW0tMzItYnl0ZXM=}
+    expiration-minutes: 60
+    refresh-expiration-minutes: 480
+  cors:
+    allowed-origin: ${PADEL_CORS_ORIGIN:http://localhost:4200}
+  seed:
+    enabled: ${PADEL_SEED_ENABLED:true}
+    # Ancre du jeu de donnees de test. Laisser vide pour utiliser la date du jour.
+    reference-date: ${PADEL_SEED_DATE:}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  level:
+    be.ephec.padel: INFO

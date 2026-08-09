@@ -1,0 +1,98 @@
+/* Design tokens de l'application. Le detail visuel reste dans les composants. */
+:root {
+  --bg: #f4f6f2;
+  --surface: #ffffff;
+  --ink: #12211a;
+  --ink-60: rgba(18, 33, 26, 0.6);
+  --ink-45: rgba(18, 33, 26, 0.45);
+  --line: rgba(18, 33, 26, 0.12);
+  --lime: #d9f24b;
+  --green: #2f6b4f;
+  --red: #c8452f;
+  --red-soft: #fbe6e2;
+  --font-body: 'Barlow', system-ui, sans-serif;
+  --font-display: 'Barlow Condensed', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+}
+
+h1, h2, h3, .display {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+a { color: var(--green); text-underline-offset: 3px; }
+a:hover { color: var(--ink); }
+
+button { font-family: inherit; }
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* Utilitaires partages, volontairement peu nombreux */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 2px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: var(--lime);
+  color: var(--ink);
+}
+
+.btn:disabled { background: rgba(18, 33, 26, 0.08); color: var(--ink-45); cursor: not-allowed; }
+.btn-ghost { background: none; border: 1px solid var(--line); }
+.btn-dark { background: var(--ink); color: var(--bg); }
+
+.card { background: var(--surface); border: 1px solid var(--line); }
+
+.field-label {
+  display: block;
+  margin-bottom: 8px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-45);
+}
+
+.input {
+  width: 100%;
+  padding: 13px 16px;
+  background: var(--surface);
+  border: 1px solid rgba(18, 33, 26, 0.2);
+  border-radius: 2px;
+  font: inherit;
+  color: var(--ink);
+}
+
+.error { color: var(--red); font-size: 13.5px; }
+
+@media (max-width: 900px) {
+  body { font-size: 14.5px; }
+}
