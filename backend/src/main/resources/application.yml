@@ -12,7 +12,7 @@ spring:
     # padel_app n'a aucun droit DDL : le schema est cree par le conteneur MySQL.
     hibernate:
       ddl-auto: none
-    open-in-view: false
+    open-in-view: true
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
