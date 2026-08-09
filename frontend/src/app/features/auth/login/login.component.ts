@@ -166,7 +166,7 @@ export class LoginComponent {
   ];
 
   readonly form = this.fb.nonNullable.group({
-    matricule: ['', [Validators.required, Validators.pattern(/^[GSLgsl][0-9]{4,5}$/)]],
+    matricule: ['', [Validators.required, Validators.pattern(/^[GSLAgsla][0-9]{4,5}$/)]],
     password: ['', [Validators.required, Validators.minLength(6)]],
   });
 
@@ -193,15 +193,16 @@ export class LoginComponent {
   get matriculeHint(): string {
     const value = this.form.controls.matricule.value.trim().toUpperCase();
     if (!value) {
-      return 'Une lettre G, S ou L suivie de 4 ou 5 chiffres.';
+      return 'Une lettre G, S, L ou A suivie de 4 ou 5 chiffres.';
     }
     if (this.form.controls.matricule.invalid) {
-      return 'Format attendu : G, S ou L suivi de 4 ou 5 chiffres.';
+      return 'Format attendu : G, S, L ou A suivi de 4 ou 5 chiffres.';
     }
     const category: Record<string, string> = {
       G: 'Membre global · 21 jours a l\'avance',
       S: 'Membre de site · 14 jours a l\'avance',
       L: 'Membre libre · 5 jours a l\'avance',
+      A: 'Compte administrateur',
     };
     return category[value.charAt(0)] ?? '';
   }

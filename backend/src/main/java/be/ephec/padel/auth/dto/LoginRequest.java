@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Pattern;
 public record LoginRequest(
 
         @NotBlank(message = "Le matricule est obligatoire")
-        @Pattern(regexp = "^[GSLgsl][0-9]{4,5}$",
+        @Pattern(regexp = "^[GSLAgsla][0-9]{4,5}$",
                 message = "Format attendu : G, S ou L suivi de 4 ou 5 chiffres")
         String matricule,
 
