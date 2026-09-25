@@ -13,7 +13,7 @@ Les chemins sont relatifs a la racine `padel-manager/`.
 |Dossier d'architecture a la racine|`ARCHITECTURE.md`|Fait|
 |Document d'exploitation a la racine|`EXPLOITATION.md`|Fait|
 |Architecture decrite = architecture du code|`ARCHITECTURE.md` §2 et §3 decrivent l'arborescence reelle|Fait|
-|Les parties compilent et demarrent sans erreur|`mvn clean install`, `npm start` — voir EXPLOITATION §3 et §4|A verifier chez toi|
+|Les parties compilent et demarrent sans erreur|`mvn clean install`, `npm start` — voir EXPLOITATION §3 et §4|Fait|
 |Authentification des utilisateurs|`auth/AuthController`, `JwtService`, `SecurityConfig`|Fait|
 |Roles utilisateurs avec operations specifiques|`members/Role`, `SecurityConfig`, `CurrentMemberService.requireScopeOn`|Fait|
 |Frontend communiquant avec le backend via HTTP|`frontend/src/app/core/services/\*.ts` (HttpClient)|Fait|
